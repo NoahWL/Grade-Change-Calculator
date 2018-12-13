@@ -14,6 +14,11 @@ public class Fraction {
 		this.denominator = denominator;
 	}
 	
+	public Fraction(double decimal) {
+		this.numerator = decimal;
+		this.denominator = 1;
+	}
+	
 	public double getDecimal() {
 		if (denominator == 0)
 			return 0.0;
@@ -32,7 +37,30 @@ public class Fraction {
 		return Math.round(getPercentage() * roundNum) / roundNum;
 	}
 	
+	public double getNumerator() {
+		return numerator;
+	}
+	
+	public double getDenominator() {
+		return denominator;
+	}
+	
 	public String toString() {
-		return (int) numerator + "/" + (int) denominator;
+		if (numerator >= 1)
+			return (int) numerator + "/" + (int) denominator;
+		else
+			return numerator + "/" + (int) denominator;
+	}
+	
+	public Fraction add(Fraction f) {
+		double newNumerator = this.getNumerator() + f.getNumerator();
+		double newDenominator = this.getDenominator() + f.getDenominator();
+		return new Fraction(newNumerator, newDenominator);
+	}
+	
+	public Fraction add(double numerator, double denominator) {
+		double newNumerator = this.getNumerator() + numerator;
+		double newDenominator = this.getDenominator() + denominator;
+		return new Fraction(newNumerator, newDenominator);
 	}
 }

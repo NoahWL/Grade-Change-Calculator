@@ -1,6 +1,1 @@
-
-.classpath
-.gitattributes
-.project
-*.prefs
-*.class
+/bin/
